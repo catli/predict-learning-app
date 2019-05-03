@@ -1,0 +1,9 @@
+model_filename: 'model/model_3only'
+nb_lstm_units: 50
+nb_lstm_layers: 1
+include_correct: True
+threshold: 0.2
+batchsize: 1
+exercise_filename: 'model/data/fake_data'
+output_filename: 'model/data/output'
+content_index_filename: 'model/data/exercise_index_3only'
