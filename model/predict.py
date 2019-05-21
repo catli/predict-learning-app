@@ -4,7 +4,6 @@
 import torch
 import torch.utils.data as Data
 from torch.nn import functional as F
-import yaml
 import os
 import numpy as np
 from model.process_data import convert_token_to_matrix, split_train_and_test_data, extract_content_map
@@ -190,7 +189,16 @@ def create_index_to_content_map(content_index):
 
 def run_inference():
     print('start')
-    loaded_params = yaml.load(open('predict_params.yaml', 'r'))
+    loaded_params = { 'model_filename': 'model/model_3only',
+                'nb_lstm_units': 50,
+                'nb_lstm_layers': 1,
+                'include_correct': True,
+                'threshold': 0.2,
+                'batchsize': 1,
+                'exercise_filename': 'model/data/fake_data',
+                'output_filename': 'model/data/output',
+                'content_index_filename': 'model/data/exercise_index_3only'}
+
     model_filename = loaded_params['model_filename']
     nb_lstm_units = loaded_params['nb_lstm_units']
     nb_lstm_layers = loaded_params['nb_lstm_layers']
